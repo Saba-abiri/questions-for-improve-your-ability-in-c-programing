@@ -1,0 +1,17 @@
+Questions :
+1_ write a function which get an array and a number and change all array's houses to that number .
+2_ write a function which can copy an array into another array (size of this two array could change).
+3_ write a functon which could copy an array into another array from a optional house .
+4_ write a function which reverse an array .
+5_ write a functin which copy reverse of an array into another array.
+6_ write a functin which find a number in an array and return the address of it .
+7_write a functin which compare two array and return a number under bellow condition :
+array1 == array2       ->     0
+array1 > array2        ->     positive number
+array1 < array2        ->     negative number
+8_write a functin which can find a pattern in an array and return the starting address of the pattern in that array .
+9_write a functin which can add a number to an array , number of array's items can be changed but the length of array is constant (for example an array
+has 10 as length and has 5 members ,after adding an item this array has 6 members ) .
+10_write a functin which delete a item from an array .
+11_write a functin which sort an array in two way ascending and descending .
+12_write a functin which using search Binary algoritm find a number and return the array's index of this number .
