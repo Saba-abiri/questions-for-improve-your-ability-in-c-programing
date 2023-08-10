@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1691425093 source:d:\app\code block\c_ advance\string_second\string_hmw\qstring_ (1)\qstring_1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdint.h>
+
