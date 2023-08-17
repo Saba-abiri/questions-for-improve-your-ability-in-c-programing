@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1692298897 source:d:\app\code block\c_ advance\dynamic_linklist4\home\dynamic memory\1\linkedlist_delnum\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdint.h>
+
