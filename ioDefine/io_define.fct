@@ -1,0 +1,4 @@
+main DSTACK_USAGE:6 DSTACK_LEVEL:6 FILE:"main.c" LINE:11
+sin DSTACK_USAGE:9 DSTACK_LEVEL:15 FILE:"..\..\..\..\..\..\..\CodeVisonAVR\nasbi\lib\math.lib" LINE:756
+floor DSTACK_USAGE:4 DSTACK_LEVEL:19 FILE:"..\..\..\..\..\..\..\CodeVisonAVR\nasbi\lib\math.lib" LINE:659
+ftrunc DSTACK_USAGE:4 DSTACK_LEVEL:23 FILE:"..\..\..\..\..\..\..\CodeVisonAVR\nasbi\lib\math.lib" LINE:544

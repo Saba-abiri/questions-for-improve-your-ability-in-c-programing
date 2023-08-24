@@ -1,0 +1,90 @@
+#include <stdint.h>
+
+#define SOFT_PWM_CHANNEL_NUM    2
+
+#define GPIO_BASE   0x30
+#define GPIOD       (*((Gpio*)GPIO_BASE))
+#define GPIOC       (*((Gpio*)(GPIO_BASE + 0x03)))
+#define GPIOB       (*((Gpio*)(GPIO_BASE + 0x06))) 
+#define GPIOA       (*((Gpio*)(GPIO_BASE + 0x09)))  
+
+typedef enum{
+    Gpio_Pin0 = 0x01,
+    Gpio_Pin1 = 0x02,
+    Gpio_Pin2 = 0x04,
+    Gpio_Pin3 = 0x08,
+    Gpio_Pin4 = 0x10,
+    Gpio_Pin5 = 0x20,
+    Gpio_Pin6 = 0x40,
+    Gpio_Pin7 = 0x80,    
+}Gpio_PinNum; 
+
+
+typedef struct {
+    uint8_t bit0 : 1;
+    uint8_t bit1 : 1;
+    uint8_t bit2 : 1;
+    uint8_t bit3 : 1;
+    uint8_t bit4 : 1;
+    uint8_t bit5 : 1;
+    uint8_t bit6 : 1;
+    uint8_t bit7 : 1;
+} Register;
+
+typedef struct {
+    uint8_t PIN;
+    uint8_t DDR;
+    uint8_t PORT;    
+}Gpio;
+
+typedef struct{
+    Gpio* gpio;
+    Gpio_PinNum pin;
+}Gpio_PinConfig;
+
+typedef struct {
+    Gpio_PinConfig* pinConfig;
+    uint8_t duty;         
+}SoftPWM_Channel;
+
+SoftPWM_Channel channels[SOFT_PWM_CHANNEL_NUM];
+uint8_t  channelNum = 0;
+uint8_t timer = 0;
+
+void SoftPWM_init(void){
+    uint8_t chn;
+    for(chn = 0; chn < channelNum; chn++){
+        channels[chn].pinConfig->gpio->DDR |= channels[chn].pinConfig->pin;
+    }            
+         
+}
+
+void SoftPWM_add(Gpio_PinConfig* pinConfig, uint8_t duty){
+    channels[channelNum].pinConfig = pinConfig;
+    channels[channelNum].duty = duty; 
+    channelNum++;           
+}
+
+void SoftPWM_dutychnge(uint8_t chNum , uint8_t duty){
+    channels[chNum].duty = duty;           
+}
+
+void SoftPWM_IRQ(void){    
+    uint8_t chn;
+    for(chn = 0; chn < channelNum; chn++)
+    {
+        if(timer < channels[chn].duty)
+        { 
+            channels[chn].pinConfig->gpio->PORT |= channels[chn].pinConfig->pin;
+        }
+        else
+        {   
+            channels[chn].pinConfig->gpio->PORT &= ~channels[chn].pinConfig->pin;
+        }
+        
+        if(++timer >= 100)
+        {                
+            timer = 0;
+        }    
+    }
+} 
