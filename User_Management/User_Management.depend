@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1696336696 source:d:\app\code block\c_ advance\end_project\user_management\main.c
+	<stdio.h>
+	<stdlib.h>
+	"User_Management.h"
+
+1696331976 source:d:\app\code block\c_ advance\end_project\user_management\lib\user_managment.c
+	"User_Managment.h"
+	<stdio.h>
+	<stdlib.h>
+	<stdint.h>
+
+1696331951 d:\app\code block\c_ advance\end_project\user_management\lib\user_managment.h
+	<stdint.h>
+
+1696336558 d:\app\code block\c_ advance\end_project\user_management\user_management.h
+	<stdint.h>
+
+1696333642 source:d:\app\code block\c_ advance\end_project\user_management\user_management.c
+	"User_Management.h"
+
